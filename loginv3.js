@@ -90,16 +90,20 @@ function authenticateToken(req,res,next){
 
   if (token == null) {
    res.sendStatus(401)
+   return
   } 
 
   if (blacklistedTokens.includes(token)){
    res.sendStatus(401)
+   return
   }
 
   jwt.verify(token,'mysecretkey',(err,user)=>{
-   if (err) return res.sendStatus(403)
+   if (err) { res.sendStatus(403)}
+   else{
    req.user = user
    next()
+   }
   })
 }
 
