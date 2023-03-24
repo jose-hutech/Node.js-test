@@ -36,6 +36,12 @@ app.get('/register',(req,res)=>{
 
 })
 
+// display the blacklistedTokens
+app.get('/blacktokens',(req,res)=>{
+    res.json(blacklistedTokens)
+    console.log(blacklistedTokens);
+})
+
 
 // Register the users
   
