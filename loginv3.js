@@ -90,12 +90,12 @@ function authenticateToken(req,res,next){
 
   if (token == null) {
    res.sendStatus(401)
-   return
+
   } 
 
   if (blacklistedTokens.includes(token)){
    res.sendStatus(401)
-   return
+
   }
 
   jwt.verify(token,'mysecretkey',(err,user)=>{
@@ -112,7 +112,7 @@ function authenticateToken(req,res,next){
 //logging out users
 
 app.post('/logout',(req,res)=>{
-  const token = req.headers.authorization.split('')[1]
+  const token = req.headers.authorization.split(' ')[1]
   blacklistedTokens.push(token)
   res.json({message:"Logged out successfully"})
 })
