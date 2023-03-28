@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 const {MongoClient} = require('mongodb')
 const PORT = 3000
 const app =express()
-const uri= 'mongodb+srv://chris:chris-123@cluster0.3nvcklr.mongodb.net/?retryWrites=true&w=majority'
+const uri= '**********************'
 
 // cluster firstproject
 
